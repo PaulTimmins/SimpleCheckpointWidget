@@ -1,4 +1,4 @@
-package net.mudkips.simplecheckpointwidget;
+package net.mudkips.simpleRescheckpointwidget;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,15 +1,13 @@
-package net.mudkips.simplecheckpointwidget;
+package net.mudkips.simpleRescheckpointwidget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
+
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import android.content.ComponentName;
-import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +22,6 @@ public class CheckPointAppWidget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
         final int N = appWidgetIds.length;
         for (int appWidgetId : appWidgetIds) {
-            //updateAppWidget(context, appWidgetManager, appWidgetIds[i]);
             Timer timer = new Timer();
             timer.scheduleAtFixedRate(new CheckPointTime(context, appWidgetManager, appWidgetId), 1, 1000);
         }

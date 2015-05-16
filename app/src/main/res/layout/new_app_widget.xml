@@ -3,17 +3,20 @@
     android:padding="@dimen/widget_margin" android:background="#09C">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/res"
+        android:background="#0000ff"
+        android:alpha=".20"
+        android:adjustViewBounds="true" />
 
     <TextView android:id="@+id/appwidget_text" android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" android:text="@string/appwidget_text"
-        android:textColor="#ffffff" android:textSize="10sp"
+        android:textColor="#FFFFFF" android:textSize="10sp"
         android:layout_margin="8dp" android:contentDescription="@string/appwidget_text"
-        android:background="#09C"
-        android:textStyle="normal"
+        android:textStyle="normal|bold"
         android:typeface="normal"
         android:maxLines="20" />
 
