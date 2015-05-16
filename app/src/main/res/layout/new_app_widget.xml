@@ -2,6 +2,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="@dimen/widget_margin" android:background="#09C">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView" />
+
     <TextView android:id="@+id/appwidget_text" android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" android:text="@string/appwidget_text"
@@ -11,5 +16,6 @@
         android:textStyle="normal"
         android:typeface="normal"
         android:maxLines="20" />
+
 
 </RelativeLayout>

@@ -23,10 +23,10 @@ public class CheckPointAppWidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         final int N = appWidgetIds.length;
-        for (int i = 0; i < N; i++) {
+        for (int appWidgetId : appWidgetIds) {
             //updateAppWidget(context, appWidgetManager, appWidgetIds[i]);
             Timer timer = new Timer();
-            timer.scheduleAtFixedRate(new CheckPointTime(context, appWidgetManager, appWidgetIds[i]), 1, 1000);
+            timer.scheduleAtFixedRate(new CheckPointTime(context, appWidgetManager, appWidgetId), 1, 1000);
         }
     }
     private class CheckPointTime extends TimerTask {
@@ -34,9 +34,10 @@ public class CheckPointAppWidget extends AppWidgetProvider {
         AppWidgetManager appWidgetManager;
         int thisWidget;
 
-        DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT, Locale.getDefault());
+        DateFormat format;
 
         public CheckPointTime(Context context, AppWidgetManager appWidgetManager,int appWidgetId) {
+            format = android.text.format.DateFormat.getTimeFormat(context);
             this.appWidgetManager = appWidgetManager;
             remoteViews = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
             //thisWidget = new ComponentName(context, CheckPointAppWidget.class);
@@ -54,7 +55,7 @@ public class CheckPointAppWidget extends AppWidgetProvider {
                     TimeUnit.MILLISECONDS.toMinutes(countdown-(TimeUnit.MILLISECONDS.toHours(countdown)*1000*60*60)),
                     TimeUnit.MILLISECONDS.toSeconds(countdown) -
                             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(countdown))
-            )+"\nNext:"+format.format(next)
+            )+"\nNext:\n"+format.format(next)
             );
             //remoteViews.setTextViewText(R.id.appwidget_text, "Checkpoint = " +format.format(new Date()));
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
